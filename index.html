@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
+    <title>E-commerce Básico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Instrumentos Musicales</h1>
+        <h2>VENTA EXCLUSIVA PARA CLIENTES</h2>
+    </header>
+
+    <main>
+
+        <section id="auth">
+
+            <form id="registerForm">
+                <h3>Registro</h3>
+                <div class="form-group">
+                    <label for="firstName">Nombre:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Apellido:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerUsername">Usuario:</label>
+                    <input type="text" id="registerUsername" name="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Contraseña:</label>
+                    <input type="password" id="registerPassword" name="registerPassword" required>
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+            <form id="loginForm">
+                <h4>Iniciar Sesión</h4>
+                <label for="loginUsername">Usuario:</label>
+                <input type="text" id="loginUsername" name="loginUsername" required>
+                <label for="loginPassword">Contraseña:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
+        <script>
+            document.getElementById('registerForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                window.location.href = 'productos.html';
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                window.location.href = 'productos.html';
+            });
+        </script>
+    </main>
+
+    <script src="e-comerce.js"></script>
+</body>
+
+</html>
