@@ -33,18 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (storedPassword && storedPassword === password) {
             currentUser = username;
             Swal.fire({
-                position: "top-end",
+                position: "top-center",
                 icon: "success",
-                title: "Bienvenido ${username}",
+                title: "Bienvenido a Beat Masters",
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 1500,
+            }).then(() => {
+                window.location.href = 'productos.html'; // Redirige a productos.html después de la alerta
             });
-
         } else {
-
-            alert('Usuario o contraseña incorrectos.');
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "Usuario o contraseña incorrectos.",
+                showConfirmButton: false,
+                timer: 1500,
+            });
         }
     });
+
     let carrito = [];
 
     function agregarCarrito(e) {
@@ -54,13 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let padre = hijo.parentNode;
         let abuelo = padre.parentNode;
 
-
-
         let nombreProducto = padre.querySelector("h5").textContent;
         let precioProducto = padre.querySelector("span").textContent;
         let imgProducto = abuelo.querySelector("img").src;
-
-
 
         let producto = {
             nombre: nombreProducto,
@@ -70,23 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         carrito.push(producto);
-
-
         mostrarCarrito();
-
     }
 
-
-
     function mostrarCarrito() {
-
         let tabla = document.getElementById("tbody");
-
         tabla.innerHTML = "";
 
         for (let producto of carrito) {
-
-
             let fila = document.createElement("tr");
             fila.innerHTML = `<td><img src="${producto.img}"></td>
                               <td><p>${producto.nombre}</p></td>
@@ -97,70 +91,41 @@ document.addEventListener('DOMContentLoaded', () => {
             tabla.append(fila);
         }
 
-
         let btnBorrar = document.querySelectorAll(".borrarElemento");
 
-
         for (let btn of btnBorrar) {
-
             btn.addEventListener("click", borrarProducto);
         }
-
-
     }
 
-
     function borrarProducto(e) {
-
-
         console.log("ELEMENTO ELIMINADO: ", e.target);
         let abuelo = e.target.parentNode.parentNode;
-
         abuelo.remove();
 
         let productoEliminar = abuelo.querySelector("p").textContent;
 
-
-
         function sacarDeCarrito(producto) {
-
-            return producto.nombre != productoEliminar
+            return producto.nombre != productoEliminar;
         }
 
         let resultadoEliminar = carrito.filter(sacarDeCarrito);
         carrito = resultadoEliminar;
         console.log(carrito);
-
-
     }
-
 
     let btnCompra = document.querySelectorAll(".botonCompra");
 
     console.log(btnCompra);
 
     for (let boton of btnCompra) {
-
         boton.addEventListener("click", agregarCarrito);
     }
-
-
-
 
     let btnCarrito = document.getElementById("mostrar_carrito");
 
     btnCarrito.addEventListener("click", function () {
-
         let carrito = document.getElementById("carrito");
-
-        if (carrito.style.display != "none") {
-
-            carrito.style.display = "none";
-        }
-        else {
-            carrito.style.display = "block";
-        }
-    })
-
-
+        carrito.style.display = carrito.style.display != "none" ? "none" : "block";
+    });
 });

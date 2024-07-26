@@ -1,0 +1,86 @@
+[
+    {
+        "id": "1",
+        "nombre": "Stage Custom Hip",
+        "precio": "2500",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "2",
+        "nombre": "Batería Bop Stage Custom",
+        "precio": "1550",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "3",
+        "nombre": "Manu Katché Signature",
+        "precio": "3200",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "4",
+        "nombre": "SATURN EVOLUTION MAPLE-WALNUT",
+        "precio": "3200",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "5",
+        "nombre": "SATURN",
+        "precio": "2550",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "6",
+        "nombre": "ARMORY",
+        "precio": "1800",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "7",
+        "nombre": "22 K CONSTANTINOPLE THIN RIDE MARTILLADO",
+        "precio": "1200",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "8",
+        "nombre": "K CUSTOM SPECIAL DRY RIDE DE 21 OSCURO",
+        "precio": "900",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "9",
+        "nombre": "K LIGHT RIDES 22",
+        "precio": "800",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "10",
+        "nombre": "Mapex BLACK PANTHER",
+        "precio": "1200",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "11",
+        "nombre": "Mapex Black Panther Design Lab Maximus",
+        "precio": "800",
+        "stock": 5,
+        "cantidad": 1
+    },
+    {
+        "id": "12",
+        "nombre": "Mapex Black Panther Design Lab",
+        "precio": "600",
+        "stock": 5,
+        "cantidad": 1
+    }
+]

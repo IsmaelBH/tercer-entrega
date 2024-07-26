@@ -16,11 +16,24 @@ header {
     text-align: center;
 }
 
+.logo {
+    width: 10%;
+    left: 400px;
+    text-align: right;
+}
+
 main {
 
     display: flex;
     justify-content: space-around;
     padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 6px 0;
+    text-align: center;
 }
 
 section {

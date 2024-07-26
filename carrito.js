@@ -1,3 +1,46 @@
+fetch('productos.json')
+    .then(response => response.json())
+    .then(data => {
+        listaProductos = data;
+        mostrarProductos();
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
+
+function mostrarProductos() {
+    const contenedorProductos = document.getElementById('listaProductos');
+
+    listaProductos.forEach(producto => {
+        const col = document.createElement('div');
+        col.classList.add('col');
+
+        const card = `
+            <div class="card" style="width: 90%;">
+                <img src="img/Productos/${producto.nombre.replace(/\s+/g, '_')}.jpg" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">Descripción del producto</p>
+                    <span class="precio">$${producto.precio}</span>
+                    <a id="${producto.id}" href="#" class="btn btn-primary botonCompra">Comprar</a>
+                </div>
+            </div>
+        `;
+
+        col.innerHTML = card;
+        contenedorProductos.appendChild(col);
+    });
+
+    agregarEventos();
+}
+
+function agregarEventos() {
+    let btnCompra = document.querySelectorAll(".botonCompra");
+    console.log(btnCompra);
+
+    for (let boton of btnCompra) {
+        boton.addEventListener("click", agregarCarrito);
+    }
+}
+
 let carrito = [];
 
 function agregarCarrito(e) {
@@ -18,7 +61,14 @@ function agregarCarrito(e) {
         cantidad: 1
     };
 
-    carrito.push(producto);
+    let productoEnCarrito = carrito.find(item => item.nombre === producto.nombre);
+
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad += 1;
+    } else {
+        carrito.push(producto);
+    }
+
     mostrarCarrito();
     calcularTotal();
 }
@@ -62,24 +112,21 @@ function calcularTotal() {
     document.getElementById("total").textContent = total.toFixed(2);
 }
 
-let btnCompra = document.querySelectorAll(".botonCompra");
-console.log(btnCompra);
-
-for (let boton of btnCompra) {
-    boton.addEventListener("click", agregarCarrito);
-}
-
 let btnCarrito = document.getElementById("mostrar_carrito");
 btnCarrito.addEventListener("click", function () {
     let carrito = document.getElementById("carrito");
     carrito.style.display = carrito.style.display === "none" || carrito.style.display === "" ? "block" : "none";
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("carrito").style.display = "none";
 });
 
 document.getElementById("pagar").addEventListener("click", function () {
-    document.getElementById("opcionesPago").style.display = "block";
+    Swal.fire({
+        title: '¡Gracias por su compra!',
+        text: 'Nos pondremos en contacto por entrega y envío del producto.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+    });
 });
